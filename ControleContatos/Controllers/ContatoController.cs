@@ -36,6 +36,7 @@ namespace ControleContatos.Controllers
             {
                 _context.Add(contato);
                 await _context.SaveChangesAsync();
+                TempData["MensagemSucesso"] = "Contato criado com sucesso";
                 return RedirectToAction(nameof(Index));
             }
             return View(contato);
@@ -75,6 +76,7 @@ namespace ControleContatos.Controllers
                 {
                     _context.Update(contato);
                     await _context.SaveChangesAsync();
+                    TempData["MensagemSucesso"] = "Contato alterado com sucesso";
                 }
                 catch (DbUpdateConcurrencyException)
                 {
@@ -122,6 +124,7 @@ namespace ControleContatos.Controllers
             }
 
             await _context.SaveChangesAsync();
+            TempData["MensagemSucesso"] = "Contato deletado com sucesso";
             return RedirectToAction(nameof(Index));
         }
 

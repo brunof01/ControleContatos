@@ -7,6 +7,7 @@ namespace ControleContatos.Models
         public int Id { get; set; }
         [Display(Name = "Nome completo")]
         [Required(ErrorMessage = "O campo nome é obrigatório")]
+        [RegularExpression(@"^\S+\s+\S+.*$", ErrorMessage = "Informe nome e sobrenome")]
         public string Nome { get; set; }
 
         [Required(ErrorMessage = "O campo e-mail é obrigatório")]
